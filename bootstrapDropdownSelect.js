@@ -50,6 +50,8 @@
 
         init: function() {
 						var self = this;
+						self.container = self.options.container.clone();
+						self.link = self.options.link.clone();
 						self.createDropdown();
 						self.bindChange();
         },
@@ -62,22 +64,22 @@
 						ul.append($('<li><a class="bds-option" data-value="'+$(this).attr('value')+'">'
 													+ $(this).text() + '</a></li>'));
 					});
-					self.options.link.attr('data-toggle', 'dropdown');
-					self.options.container.addClass('dropdown');
-					self.options.container.append(ul)
+					self.link.attr('data-toggle', 'dropdown');
+					self.container.addClass('dropdown');
+					self.container.append(ul)
 						.append(
-							self.options.link.text($(self.element).find('option:selected').text())).insertAfter($(self.element));
+							self.link.text($(self.element).find('option:selected').text())).insertAfter($(self.element));
 				},
 
 				updateValue: function(newValue) {
 					var self = this;
 					$(self.element).val(newValue).trigger('change');
-					self.options.link.text($(self.element).find('option:selected').text());
+					self.link.text($(self.element).find('option:selected').text());
 				},
 
 				bindChange: function() {
 					var self = this;
-					self.options.container.on('click.bds', '.bds-option', function(){
+					self.container.on('click.bds', '.bds-option', function(){
 						self.updateValue($(this).data('value'));
 					});	
 				}

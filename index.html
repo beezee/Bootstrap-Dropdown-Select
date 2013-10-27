@@ -45,7 +45,7 @@
     <div class="container" style="margin-top:50px;">
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-2">
           <h2>Turn this:</h2>
           <p>
 						<select id="no-plugin">
@@ -55,7 +55,7 @@
 						</select>
 					</p>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-2">
           <h2>Into this:</h2>
           <p>
 						<select id="with-plugin">
@@ -65,8 +65,57 @@
 						</select>
 					</p>
        </div>
+			 <div class="col-lg-8">
+					<h2>With this:</h2>
+					<p>
+						<pre class="highlight">
+							$('select').dropdownSelect();
+						</pre>
+					</p>
+				</div>
       </div>
-
+      <hr>
+      <div class="row">
+        <div class="col-lg-2">
+        </div>
+        <div class="col-lg-2">
+          <p>
+						<select id="style-button">
+							<option value="">None</option>
+							<option value="1">First Choice</option>
+							<option value="2">Second Choice</option>
+						</select>
+					</p>
+       </div>
+			 <div class="col-lg-8">
+					<p>
+						<pre class="highlight">
+							$('select').dropdownSelect({link: $('&lt;a class="btn btn-primary"&gt;&lt;/a&gt;')});
+						</pre>
+					</p>
+				</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-lg-2">
+        </div>
+        <div class="col-lg-2">
+          <p>
+						<select id="style-container">
+							<option value="">None</option>
+							<option value="1">First Choice</option>
+							<option value="2">Second Choice</option>
+						</select>
+					</p>
+       </div>
+			 <div class="col-lg-8">
+					<p>
+						<pre class="highlight">
+							$('select').dropdownSelect({container: $('&lt;div class="alert alert-warning" /&gt;')});
+						</pre>
+					</p>
+				</div>
+      </div>
       <hr>
 <a href="https://github.com/beezee/Bootstrap-Dropdown-Select"><img style="position: absolute; top: 0; right: 0; border: 0; z-index:1050;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
       <footer>
@@ -78,9 +127,14 @@
 
         <script src="js/main.js"></script>
 	<script type="text/javascript" src="./bootstrapDropdownSelect.js"></script>
+	<script type="text/javascript" src="http://balupton.github.com/jquery-syntaxhighlighter/scripts/jquery.syntaxhighlighter.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			$.browser = {}
+			$.SyntaxHighlighter.init({debug: true});
 			$('#with-plugin').dropdownSelect();
+			$('#style-button').dropdownSelect({link: $('<a class="btn btn-primary"></a>')});
+			$('#style-container').dropdownSelect({container: $('<div class="alert alert-warning" />')});
 		});
 	</script>
         <script>
